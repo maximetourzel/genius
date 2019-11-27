@@ -50,7 +50,7 @@ export class GameComponent implements OnInit{
    ngOnInit() {
     setTimeout(() => {
       this.router.navigate(['/end']);
-    }, 60000);  //60s;
+    }, 20000);  //60s;
    }
 
    

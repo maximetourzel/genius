@@ -50,6 +50,10 @@
       <mat-checkbox formControlName="validate" value="1">Name min. 3 characters</mat-checkbox>
     </div> -->
 
+   <br/><br/>  
+      <input  type="file" id="avatar" name="avatar" accept="file/pdf">
+   <br/><br/><br/><br/>
+
     <div class="form-element">
       <button routerLink="/game" mat-raised-button color="primary" type="submit" class="button" [disabled]="!formGroup.valid" label="Click" (click)="clickButton()">Envoyer ma candidature</button>
     </div>
