@@ -1,21 +1,6 @@
-// import { Component, OnInit } from '@angular/core';
-
-// @Component({
-//   selector: 'app-formulaire',
-//   templateUrl: './formulaire.component.html',
-//   styleUrls: ['./formulaire.component.css']
-// })
-// export class FormulaireComponent implements OnInit {
-
-//   constructor() { }
-
-//   ngOnInit() {
-//   }
-
-// }
-
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 //import { Observable }    from 'rxjs/Observable';
 
 @Component({
@@ -28,8 +13,9 @@ export class FormulaireComponent {
   formGroup: FormGroup;
   titleAlert: string = 'This field is required';
   post: any = '';
+  
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit() {
     this.createForm();
@@ -97,6 +83,11 @@ export class FormulaireComponent {
 
   onSubmit(post) {
     this.post = post;
+    // this.router.navigate(['/game'])
   }
+
+  // public clickButton(){
+  //   this.router.navigate(['/game']);
+  // }
 
 }
