@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BestScoreManager } from '../app.storage.service';
 import { CONTROLS, COLORS, BOARD_SIZE, GAME_MODES } from '../app.constants';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-game',
@@ -10,7 +11,7 @@ import { CONTROLS, COLORS, BOARD_SIZE, GAME_MODES } from '../app.constants';
     '(document:keydown)': 'handleKeyboardEvents($event)'
   }
 })
-export class GameComponent {
+export class GameComponent implements OnInit{
 
   private interval: number;
   private tempDirection: number;
@@ -42,9 +43,17 @@ export class GameComponent {
     y: -1
   };
 
-  constructor(private bestScoreService: BestScoreManager) {
+  constructor(private bestScoreService: BestScoreManager, private router: Router) {
     this.setBoard();
    }
+
+   ngOnInit() {
+    setTimeout(() => {
+      this.router.navigate(['/end']);
+    }, 60000);  //60s;
+   }
+
+   
 
   handleKeyboardEvents(e: KeyboardEvent) {
     if (e.keyCode === CONTROLS.LEFT && this.snake.direction !== CONTROLS.RIGHT) {

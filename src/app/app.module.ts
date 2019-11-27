@@ -12,13 +12,15 @@ import { SharedModule } from './shared-modules/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
+import { EndComponent } from './end/end.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     FormulaireComponent,
-    GameComponent
+    GameComponent,
+    EndComponent
   ],
   imports: [
     BrowserModule,
