@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class FormulaireComponent {
 
   formGroup: FormGroup;
-  titleAlert: string = 'This field is required';
+  titleAlert: string = 'Champ obligatoire';
   post: any = '';
   
 
@@ -26,8 +26,10 @@ export class FormulaireComponent {
     let emailregex: RegExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     this.formGroup = this.formBuilder.group({
       // 'email': [null, [Validators.required, Validators.pattern(emailregex)], this.checkInUseEmail],
-      'email': [null, Validators.required],
+      'nom': [null, Validators.required],
       'name': [null, Validators.required],
+      'birthday': [null, Validators.required],
+      'adressemail': [null, Validators.required],      
       'password': [null, [Validators.required, this.checkPassword]],
       'description': [null, [Validators.required, Validators.minLength(5), Validators.maxLength(10)]],
       'validate': ''
@@ -71,14 +73,14 @@ export class FormulaireComponent {
   // }
 
   getErrorEmail() {
-    return this.formGroup.get('email').hasError('required') ? 'Field is required' :
-      this.formGroup.get('email').hasError('pattern') ? 'Not a valid emailaddress' :
-        this.formGroup.get('email').hasError('alreadyInUse') ? 'This emailaddress is already in use' : '';
+    return this.formGroup.get('nom').hasError('required') ? 'Champ obligatoire' :
+      this.formGroup.get('nom').hasError('pattern') ? 'Not a valid emailaddress' :
+        this.formGroup.get('nom').hasError('alreadyInUse') ? 'This emailaddress is already in use' : '';
   }
 
   getErrorPassword() {
-    return this.formGroup.get('password').hasError('required') ? 'Field is required (at least eight characters, one uppercase letter and one number)' :
-      this.formGroup.get('password').hasError('requirements') ? 'Password needs to be at least eight characters, one uppercase letter and one number' : '';
+    return this.formGroup.get('password').hasError('required') ? 'Champ obligatoire (au moins 8 caractères, une lettre majuscule et un chiffre)' :
+      this.formGroup.get('password').hasError('requirements') ? 'Le mot de passe d au moins 8 carractères contenant une majuscule et un chiffre' : '';
   }
 
   onSubmit(post) {

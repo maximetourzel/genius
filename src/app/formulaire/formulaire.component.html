@@ -2,11 +2,12 @@
   <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form">
 
     <mat-form-field class="form-element">
-      <input matInput placeholder="Nom" formControlName="email">
-      <mat-error *ngIf="!formGroup.controls['email'].valid && formGroup.controls['email'].touched">
+      <input matInput placeholder="Nom" formControlName="nom">
+      <mat-error *ngIf="!formGroup.controls['nom'].valid && formGroup.controls['nom'].touched">
         {{ getErrorEmail() }}
       </mat-error>
     </mat-form-field>
+   
 
     <mat-form-field class="form-element">
       <input matInput placeholder="Prenom" formControlName="name">
@@ -14,27 +15,43 @@
         {{ titleAlert }}
       </mat-error>
     </mat-form-field>  
+
+
     <mat-form-field class="form-element">
-      <textarea matInput placeholder="Intitulé du poste" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5" formControlName="description"></textarea>
-      <mat-error *ngIf="!formGroup.controls['description'].valid && formGroup.controls['description'].touched">
-        Required field, must be between 5 and 10 characters.
+      <input matInput placeholder="Date de naissance" formControlName="birthday">
+      <mat-error *ngIf="!formGroup.controls['birthday'].valid && formGroup.controls['birthday'].touched">
+        {{ getErrorEmail() }}
       </mat-error>
     </mat-form-field>
 
     <mat-form-field class="form-element">
-      <input matInput placeholder="Password" formControlName="password">
-      <mat-hint>Choose a password of at least eight characters, one uppercase letter and one number</mat-hint>
+      <input matInput placeholder="Email" formControlName="adressemail">
+      <mat-error *ngIf="!formGroup.controls['adressemail'].valid && formGroup.controls['adressemail'].touched">
+        {{ getErrorEmail() }}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-element">
+      <textarea matInput placeholder="Intitulé du poste" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5" formControlName="description"></textarea>
+      <mat-error *ngIf="!formGroup.controls['description'].valid && formGroup.controls['description'].touched">
+        Champ obligatoire, compris entre 5 et 10 caractères.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-element">
+      <input matInput placeholder="Mot de passe" formControlName="password">
+      <mat-hint>Choisissez un mot de passe d'au moins 8 caractères contenant une majuscule et un chiffre</mat-hint>
       <mat-error *ngIf="!formGroup.controls['password'].valid && formGroup.controls['password'].touched">
         {{ getErrorPassword() }}
       </mat-error>
     </mat-form-field>
 
-    <div class="form-element">
+    <!-- <div class="form-element">
       <mat-checkbox formControlName="validate" value="1">Name min. 3 characters</mat-checkbox>
-    </div>
+    </div> -->
 
     <div class="form-element">
-      <button routerLink="/game" mat-raised-button color="primary" type="submit" class="button" [disabled]="!formGroup.valid" label="Click" (click)="clickButton()">Submit Form</button>
+      <button routerLink="/game" mat-raised-button color="primary" type="submit" class="button" [disabled]="!formGroup.valid" label="Click" (click)="clickButton()">Envoyer ma candidature</button>
     </div>
 
   </form>

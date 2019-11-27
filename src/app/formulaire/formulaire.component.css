@@ -4,15 +4,17 @@
     flex: 1 1 auto;
   }
   
-  .container {
-    padding: 10px;
-    margin: 10% 20% 20% 20%;
+  /* .container {
+   
+   
   }
-  
+   */
   .form {
     min-width: 150px;
-    max-width: 500px;
-    width: 100%;
+    max-width: 350px;
+    margin-right: auto;
+    margin-left: auto;
+    /* width: 100%; */
   }
   
   .form-element {
