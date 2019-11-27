@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { EndComponent } from './end/end.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { EndComponent } from './end/end.component';
     AppComponent,
     FormulaireComponent,
     GameComponent,
-    EndComponent
+    EndComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
